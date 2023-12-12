@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 // import { AppOverlay } from "./appOverlay";
 
 export function AppMain() {
@@ -49,7 +50,10 @@ export function AppMain() {
                   key={post.id}
                   className=" post_card flex items-center justify-center w-full md:w-6/12 lg:w-4/12 p-4"
                 >
-                  <div className="post flex flex-col justify-between rounded-2xl w-full h-full p-4 hover:scale-[1.02] duration-500">
+                  <Link
+                    to={`/blog/${post.slug}`}
+                    className="post flex flex-col justify-between rounded-2xl w-full h-full p-4 hover:scale-[1.02] duration-500"
+                  >
                     <h2 className="text-[30px]  text-stone-100 font-bold">
                       {post.title}
                     </h2>
@@ -70,7 +74,7 @@ export function AppMain() {
                         })}
                       </div>
                     </div>
-                  </div>
+                  </Link>
                 </div>
               );
             }
